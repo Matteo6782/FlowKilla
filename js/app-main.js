@@ -452,10 +452,24 @@ function createOrLoadYouTubePlayer(videoId) {
         state.ytReady = false;
         state.ytPlayer = new YT.Player("ytPlayer", {
             videoId,
-            playerVars: { playsinline: 1, enablejsapi: 1, rel: 0, modestbranding: 1, loop, playlist: loop ? videoId : undefined },
+            playerVars: {
+                playsinline: 1,
+                enablejsapi: 1,
+                rel: 0,
+                modestbranding: 1,
+                loop,
+                playlist: loop ? videoId : undefined,
+                origin: window.location.origin
+            },
             events: {
-                onReady: () => { state.ytReady = true; applyVolume(); showToast("Player YouTube pronto", "success"); tryDetectYouTubeBPM(); },
-                onError: () => showToast("Errore: video non disponibile per embed", "error")
+                onReady: () => {
+                    state.ytReady = true;
+                    applyVolume();
+                    showToast("Player YouTube pronto", "success");
+                    tryDetectYouTubeBPM();
+                },
+                onError: () =>
+                    showToast("Errore: video non disponibile per embed", "error")
             }
         });
     };
@@ -892,4 +906,5 @@ function initApp() {
 }
 
 // ← THE FIX: wait for the custom event fired by app.js, not DOMContentLoaded
+
 document.addEventListener("partialsReady", initApp, { once: true });
