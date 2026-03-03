@@ -1,0 +1,264 @@
+<!-- Settings Offcanvas -->
+<div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="settingsPanel">
+    <div class="offcanvas-header-custom">
+        <div class="offcanvas-title-custom">
+            <i class="bi bi-sliders"></i>
+            <span>Impostazioni</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <div class="offcanvas-body p-4">
+        <!-- truncated: keep original settings content or load from separate settings.html if desired -->
+
+        <div class="offcanvas-body p-4">
+            <div class="settings-note mb-3">
+                <div class="badge-custom">
+                    <i class="bi bi-lightning-charge"></i>
+                    <span>Le impostazioni si applicano in tempo reale</span>
+                </div>
+            </div>
+
+            <div class="accordion settings-accordion" id="settingsAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSession">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSession" aria-expanded="true" aria-controls="collapseSession">
+                            <i class="bi bi-rocket-takeoff me-2"></i>
+                            Sessione
+                        </button>
+                    </h2>
+                    <div id="collapseSession" class="accordion-collapse collapse show" aria-labelledby="headingSession"
+                        data-bs-parent="#settingsAccordion">
+                        <div class="accordion-body">
+                            <!-- BPM Control -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-speedometer2 me-2"></i>
+                                    Tempo (BPM)
+                                </label>
+                                <div class="range-group">
+                                    <input type="range" class="form-range-custom" min="60" max="180" value="92"
+                                        id="bpmRange">
+                                    <input type="number" class="form-control-custom range-value" min="60" max="220"
+                                        value="92" id="bpmInput">
+                                </div>
+                                <div class="mt-2 d-flex gap-2">
+                                    <button class="btn-custom btn-secondary-custom btn-sm" id="btnTapTempo2">
+                                        <i class="bi bi-hand-index-thumb"></i>
+                                        <span>Tap Tempo</span>
+                                    </button>
+                                    <span
+                                        style="color: var(--text-tertiary); font-size: 0.8125rem; align-self: center;">
+                                        Boom bap: 85-100 • Trap: 130-160
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <!-- Word Change Timing -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-arrow-repeat me-2"></i>
+                                    Nuova parola ogni
+                                </label>
+                                <select class="form-control-custom form-select-custom" id="everySelect">
+                                    <option value="1">1 beat (extreme)</option>
+                                    <option value="2">2 beat (hard)</option>
+                                    <option value="4" selected>1 barra (4 beat)</option>
+                                    <option value="8">2 barre (8 beat)</option>
+                                    <option value="16">4 barre (16 beat)</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Count-in -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-stopwatch me-2"></i>
+                                    Count-in (preparazione)
+                                </label>
+                                <select class="form-control-custom form-select-custom" id="countInSelect">
+                                    <option value="0">Nessuno (immediato)</option>
+                                    <option value="1" selected>1 barra (4 beat)</option>
+                                    <option value="2">2 barre (8 beat)</option>
+                                    <option value="4">4 barre (16 beat)</option>
+                                </select>
+                                <div style="color: var(--text-tertiary); font-size: 0.8125rem; margin-top: 0.5rem;">
+                                    Il beat parte subito, le parole dopo il count-in
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingWords">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseWords" aria-expanded="false" aria-controls="collapseWords">
+                            <i class="bi bi-fonts me-2"></i>
+                            Parole
+                        </button>
+                    </h2>
+                    <div id="collapseWords" class="accordion-collapse collapse" aria-labelledby="headingWords"
+                        data-bs-parent="#settingsAccordion">
+                        <div class="accordion-body">
+                            <!-- Language -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-translate me-2"></i>
+                                    Lingua
+                                </label>
+                                <select class="form-control-custom form-select-custom" id="langSelect">
+                                    <option value="it" selected>🇮🇹 Italiano</option>
+                                    <option value="en">🇬🇧 English</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Difficulty -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-award me-2"></i>
+                                    Difficoltà
+                                </label>
+                                <select class="form-control-custom form-select-custom" id="diffSelect">
+                                    <option value="easy" selected>Easy (parole comuni)</option>
+                                    <option value="mid">Medium (mix vario)</option>
+                                    <option value="hard">Hard (tecniche/astratte)</option>
+                                </select>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingAudio">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseAudio" aria-expanded="false" aria-controls="collapseAudio">
+                            <i class="bi bi-soundwave me-2"></i>
+                            Audio
+                        </button>
+                    </h2>
+                    <div id="collapseAudio" class="accordion-collapse collapse" aria-labelledby="headingAudio"
+                        data-bs-parent="#settingsAccordion">
+                        <div class="accordion-body">
+                            <!-- Beat Source -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-disc me-2"></i>
+                                    Sorgente Beat
+                                </label>
+                                <select class="form-control-custom form-select-custom" id="beatSourceSelect">
+                                    <option value="synth" selected>🎹 Synth (metronomo interno)</option>
+                                    <option value="yt">▶️ YouTube (embed ufficiale)</option>
+                                    <option value="file">📁 File Audio (MP3/WAV)</option>
+                                </select>
+                            </div>
+
+
+                            <!-- YouTube Search/Load -->
+                            <div class="form-group-custom hidden" id="ytControls">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-youtube me-2"></i>
+                                    Carica da YouTube
+                                </label>
+                                <div class="search-box">
+                                    <input type="text" class="search-input" id="ytInput"
+                                        placeholder="Incolla URL YouTube o cerca un beat...">
+                                    <button class="btn-custom btn-primary-custom search-button" id="btnLoadYt">
+                                        <i class="bi bi-search"></i>
+                                    </button>
+                                </div>
+                                <div style="color: var(--text-tertiary); font-size: 0.8125rem;">
+                                    Formati supportati: youtube.com/watch?v=... • youtu.be/... • /shorts/...
+                                    <br>Il BPM verrà rilevato automaticamente se possibile.
+                                </div>
+                            </div>
+
+
+                            <!-- File Upload -->
+                            <div class="form-group-custom hidden" id="fileControls">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-file-earmark-music me-2"></i>
+                                    Carica File Audio
+                                </label>
+                                <input type="file" class="form-control-custom" id="fileInput" accept="audio/*">
+                                <div style="color: var(--text-tertiary); font-size: 0.8125rem; margin-top: 0.5rem;">
+                                    Consigliato: MP3 320kbps o WAV lossless
+                                    <br>Il BPM verrà rilevato automaticamente.
+                                </div>
+                            </div>
+
+
+                            <!-- Volume Control -->
+                            <div class="form-group-custom">
+                                <label class="form-label-custom">
+                                    <i class="bi bi-volume-up me-2"></i>
+                                    Volume
+                                </label>
+                                <div class="range-group">
+                                    <input type="range" class="form-range-custom" min="0" max="100" value="80"
+                                        id="volumeRange">
+                                    <span class="range-value"><span id="volumeDisplay">80</span>%</span>
+                                </div>
+                            </div>
+
+
+                            <!-- Loop Toggle -->
+                            <div class="form-group-custom">
+                                <label class="switch-custom">
+                                    <input type="checkbox" id="loopToggle" checked hidden>
+                                    <div class="switch-toggle"></div>
+                                    <span>
+                                        <i class="bi bi-repeat me-2"></i>
+                                        Loop automatico
+                                    </span>
+                                </label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingHelp">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseHelp" aria-expanded="false" aria-controls="collapseHelp">
+                            <i class="bi bi-info-circle me-2"></i>
+                            Aiuto & scorciatoie
+                        </button>
+                    </h2>
+                    <div id="collapseHelp" class="accordion-collapse collapse" aria-labelledby="headingHelp"
+                        data-bs-parent="#settingsAccordion">
+                        <div class="accordion-body">
+                            <div style="color: var(--text-tertiary); font-size: 0.875rem;">
+                                <div class="mb-2">
+                                    <i class="bi bi-keyboard me-2"></i>
+                                    <strong>Scorciatoie:</strong> Spazio (skip) • Invio (start/stop) • F (freeze) • T
+                                    (tap)
+                                </div>
+                                <div>
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    <strong>Nota iOS:</strong> I player audio richiedono un tap utente per avviarsi
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button class="btn-custom btn-secondary-custom w-100" type="button" data-bs-dismiss="offcanvas">
+                    <i class="bi bi-check2"></i>
+                    <span>Fatto</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
